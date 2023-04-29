@@ -1,0 +1,77 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Courier New', Courier, monospace;
+}
+:root{
+    --primary: #f0f;
+    --secondary: #0aa;
+    --terthiary: #099;
+    --dark: #222;
+    --light: #dfdfdf;
+}
+body{
+    background-color: var(--light);
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+#clock{
+    border-radius: 50%;
+    height: clamp(1rem, 90vw, 55rem);
+    width: clamp(1rem, 90vw, 55rem);
+    background: conic-gradient(var(--primary),var(--dark));
+    border: 1rem var(--secondary) solid;
+    box-shadow: inset var(--dark) 1px 1px 155px 25px,
+        var(--dark) 3px 3px 155px 5px,
+        var(--terthiary) -5px 5px 0px 0px,
+        inset var(--terthiary) -3px 3px 0px 0px;
+    position: relative;
+}
+.hand{
+    border-left: var(--dark) 5px solid;
+    position: absolute;
+    top:50%;
+    left: 50%;
+    border-radius: 55px 55px 5px 5px;
+    transform-origin: left center;
+}
+.second-hand{
+    background: linear-gradient(45deg,var(--dark),red,var(--light));
+    width: 40%;
+    height: .5rem;
+    animation-delay: 1s;
+    animation: rotate-hand step-end 60s infinite;
+}
+.minute-hand{
+    background: linear-gradient(45deg,var(--dark),var(--secondary));
+    width: 35%;
+    height: .8rem;
+    rotate: 40deg;
+    animation-delay: 2s;
+    animation: rotate-hand linear 3600s infinite;
+}
+.hour-hand{
+    background: linear-gradient(45deg,var(--dark),var(--secondary),var(--secondary));
+    width: 30%;
+    height: 1rem;
+    rotate: 270deg;
+    animation: rotate-hand linear 216000s infinite;
+}
+@keyframes rotate-hand {
+    from{
+        rotate: 0deg;
+    }
+    1.67%{
+        rotate: 6deg;
+    }
+    3.34%{
+        rotate: 12deg;
+    }
+
+    to{
+        rotate: 18deg;
+    }
+}
