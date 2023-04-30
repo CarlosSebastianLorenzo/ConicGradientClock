@@ -43,7 +43,7 @@ body{
     width: 40%;
     height: .5rem;
     animation-delay: 1s;
-    animation: rotate-hand step-end 60s infinite;
+    animation: rotate-hand linear 60s infinite;
 }
 .minute-hand{
     background: linear-gradient(45deg,var(--dark),var(--secondary));
@@ -58,20 +58,13 @@ body{
     width: 30%;
     height: 1rem;
     rotate: 270deg;
-    animation: rotate-hand linear 216000s infinite;
+    animation: rotate-hand linear 86400s infinite;
 }
 @keyframes rotate-hand {
     from{
         rotate: 0deg;
     }
-    1.67%{
-        rotate: 6deg;
-    }
-    3.34%{
-        rotate: 12deg;
-    }
-
     to{
-        rotate: 18deg;
+        rotate: 360deg;
     }
 }
