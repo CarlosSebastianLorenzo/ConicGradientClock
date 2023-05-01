@@ -9,10 +9,14 @@
     --secondary: #0aa;
     --terthiary: #099;
     --dark: #222;
+    --darkSecondary: #444;
     --light: #dfdfdf;
+    --secondHandDegree: 0deg;
+    --minuteHandDegree: 0deg;
+    --hourHandDegree: 0deg;
 }
 body{
-    background-color: var(--light);
+    background: radial-gradient(var(--darkSecondary),var(--dark),black);
     height: 100vh;
     display: flex;
     justify-content: center;
@@ -20,8 +24,8 @@ body{
 }
 #clock{
     border-radius: 50%;
-    height: clamp(1rem, 90vw, 55rem);
-    width: clamp(1rem, 90vw, 55rem);
+    height: clamp(1rem, 90vw, 90vh);
+    width: clamp(1rem, 90vw, 90vh);
     background: conic-gradient(var(--primary),var(--dark));
     border: 1rem var(--secondary) solid;
     box-shadow: inset var(--dark) 1px 1px 155px 25px,
@@ -29,6 +33,7 @@ body{
         var(--terthiary) -5px 5px 0px 0px,
         inset var(--terthiary) -3px 3px 0px 0px;
     position: relative;
+    animation: rotate-hand linear 86400s infinite;
 }
 .hand{
     border-left: var(--dark) 5px solid;
@@ -43,7 +48,15 @@ body{
     width: 40%;
     height: .5rem;
     animation-delay: 1s;
-    animation: rotate-hand linear 60s infinite;
+    animation: rotateSecondHand linear 60s infinite;
+}
+@keyframes rotateSecondHand {
+    from{
+        rotate: var(--secondHandDegree)
+    }
+    to{
+        rotate: calc(var(--secondHandDegree) + 360deg);
+    }
 }
 .minute-hand{
     background: linear-gradient(45deg,var(--dark),var(--secondary));
@@ -51,20 +64,36 @@ body{
     height: .8rem;
     rotate: 40deg;
     animation-delay: 2s;
-    animation: rotate-hand linear 3600s infinite;
+    animation: rotateMinuteHand linear 3600s infinite;
+}
+@keyframes rotateMinuteHand {
+    from{
+        rotate: var(--minuteHandDegree)
+    }
+    to{
+        rotate: calc(var(--minuteHandDegree) + 360deg);
+    }
 }
 .hour-hand{
     background: linear-gradient(45deg,var(--dark),var(--secondary),var(--secondary));
     width: 30%;
     height: 1rem;
     rotate: 270deg;
-    animation: rotate-hand linear 86400s infinite;
+    animation: rotateHourHand linear 86400s infinite;
 }
-@keyframes rotate-hand {
+@keyframes rotateHourHand {
     from{
-        rotate: 0deg;
+        rotate: var(--hourHandDegree)
     }
     to{
-        rotate: 360deg;
+        rotate: calc(var(--hourHandDegree) + 360deg);
+    }
+}
+@keyframes rotate-gradient{
+    from{
+        background: conic-gradient(var(--hourHandDegree),var(--primary),var(--dark));
+    }
+    to{
+        background: conic-gradient(calc(var(--hourHandDegree) + 360deg),var(--primary),var(--dark));
     }
 }
