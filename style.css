@@ -14,6 +14,8 @@
     --secondHandDegree: 0deg;
     --minuteHandDegree: 0deg;
     --hourHandDegree: 0deg;
+    --startHourHandDegree: 0deg;
+    --startMinuteHandDegree: 0deg;
 }
 body{
     background: radial-gradient(var(--darkSecondary),var(--dark),black);
@@ -26,14 +28,13 @@ body{
     border-radius: 50%;
     height: clamp(1rem, 90vw, 90vh);
     width: clamp(1rem, 90vw, 90vh);
-    background: conic-gradient(var(--primary),var(--dark));
     border: 1rem var(--secondary) solid;
     box-shadow: inset var(--dark) 1px 1px 155px 25px,
         var(--dark) 3px 3px 155px 5px,
         var(--terthiary) -5px 5px 0px 0px,
         inset var(--terthiary) -3px 3px 0px 0px;
     position: relative;
-    animation: rotate-hand linear 86400s infinite;
+    background: conic-gradient(from var(--startHourHandDegree),var(--primary),var(--dark)var(--startMinuteHandDegree),var(--primary)0deg,var(--dark));
 }
 .hand{
     border-left: var(--dark) 5px solid;
@@ -87,13 +88,5 @@ body{
     }
     to{
         rotate: calc(var(--hourHandDegree) + 360deg);
-    }
-}
-@keyframes rotate-gradient{
-    from{
-        background: conic-gradient(var(--hourHandDegree),var(--primary),var(--dark));
-    }
-    to{
-        background: conic-gradient(calc(var(--hourHandDegree) + 360deg),var(--primary),var(--dark));
     }
 }
