@@ -90,3 +90,86 @@ body{
         rotate: calc(var(--hourHandDegree) + 360deg);
     }
 }
+
+#clock ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+#clock ul li {
+    position: absolute;
+    width: 20px;
+    height: 20px;
+    font-family: "Georgia", Times, serif;
+    font-weight: bold;
+    font-size: 15px;
+    line-height: 20px;
+    text-align: center;
+    color: var(--secondary);
+    text-shadow: -3px -3px 2p´x var(--terthiary)
+}
+
+#clock ul li:nth-child(1) {
+    top: 7.5%;
+    right: 23%;
+}
+
+#clock ul li:nth-child(2) {
+    top: 25.5%;
+    right: 6.75%;
+}
+
+#clock ul li:nth-child(3) {
+    top: calc(50% - 13px);
+    right: 2%;
+    font-size: 26px;
+}
+
+#clock ul li:nth-child(4) {
+    top: 70%;
+    right: 7%;
+}
+
+#clock ul li:nth-child(5) {
+    top: 87%;
+    right: 23.5%;
+}
+
+#clock ul li:nth-child(6) {
+    top: calc(99% - 26px);
+    right: calc(50% - 10px);
+    font-size: 26px;
+}
+
+#clock ul li:nth-child(7) {
+    top: 86.4%;
+    left: 23.3%;
+}
+
+#clock ul li:nth-child(8) {
+    top: 70%;
+    left: 7%;
+}
+
+#clock ul li:nth-child(9) {
+    top: calc(50% - 13px);
+    left: 2%;
+    font-size: 26px;
+}
+
+#clock ul li:nth-child(10) {
+    top: 24.5%;
+    left: 6.5%;
+}
+
+#clock ul li:nth-child(11) {
+    top: 7%;
+    left: 23.5%;
+}
+
+#clock ul li:nth-child(12) {
+    top: 2%;
+    right: calc(50% - 7px);
+    font-size: 26px;
+}
